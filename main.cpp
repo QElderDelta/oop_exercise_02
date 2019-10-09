@@ -28,6 +28,7 @@ int main() {
     } catch(std::exception& e) {
         std::cerr << e.what() << std::endl;
     }
+    std::cout << c << std::endl;
 
     if(a == b) {
         std::cout << "Numbers are equal" << std::endl;
@@ -40,9 +41,10 @@ int main() {
     if(a < b) {
         std::cout << "First number is less" << std::endl;
     }
-   // Modulo d = "5%3"_mod;
-    //std::cout << d.GetNumber() << std::endl;
-   // std::cout << d.GetMod() << std::endl;
+
+    Modulo d = "5%3"_mod;
+    std::cout << d.GetNumber() << std::endl;
+    std::cout << d.GetMod() << std::endl;
 
     return 0;
 }

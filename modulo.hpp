@@ -3,12 +3,12 @@
 
 
 #include <iostream>
-
+#include <cassert>
 
 class Modulo {
     public:
         Modulo() : number(0), mod(0) {}
-        Modulo(int number, int mod) : number(number < 0 ? mod + (number % mod) : number % mod), mod(mod) {}
+        Modulo(int number, int mod);
         Modulo& operator+=(const Modulo& rhs);
         Modulo& operator*=(const Modulo& rhs);
         Modulo& operator-=(const Modulo& rhs);
@@ -19,7 +19,6 @@ class Modulo {
         friend Modulo operator/(Modulo lhs, const Modulo& rhs);
         friend std::istream& operator>>(std::istream& is, Modulo& mod);
         friend std::ostream& operator<<(std::ostream& os, const Modulo& mod);
-        friend Modulo operator"" _mod(const char* c, std::size_t);
         void SetNumber(int number);
         void SetMod(int mod);
         int GetNumber() const;
@@ -31,5 +30,7 @@ class Modulo {
         int number;
         int mod;
 };
+
+Modulo operator"" _mod(const char* str, std::size_t);
 
 #endif

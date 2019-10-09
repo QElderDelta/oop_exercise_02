@@ -16,6 +16,16 @@ int ExtendedEuclid(int a, int b, int& x, int& y) {
     return gcd;
 }
 
+Modulo::Modulo(int number, int mod) {
+    assert(mod != 0);
+    this->mod = mod;
+    if(number > 0) {
+        this->number = number;
+    } else {
+        this->number = (number % mod) + mod;
+    }
+}
+
 Modulo& Modulo::operator+=(const Modulo& rhs) {
     assert(this->mod == rhs.mod);
     number = (number % mod + rhs.number % mod + mod) % mod;
@@ -72,6 +82,7 @@ Modulo operator/(Modulo lhs, const Modulo& rhs) {
 
 std::istream& operator>>(std::istream& is, Modulo& m) {
     is >> m.number >> m.mod;
+    assert(m.mod != 0);
     if(m.number % m.mod >= 0) {
         m.number %= m.mod;
     } else {
@@ -83,22 +94,6 @@ std::istream& operator>>(std::istream& is, Modulo& m) {
 std::ostream& operator<<(std::ostream& os, const Modulo& m) {
     os << m.number << " mod " << m.mod;
     return os;
-}
-
-Modulo operator""_mod(const char* str, std::size_t) {
-     std::string number, mod;
-     int i = 0;
-     while(str[i] != '%') {
-         number += str[i];
-       i++;
-     }
-     i++;
-     while(str[i] != '\0') {
-         mod = str[i];
-         i++;
-     }
-     std::cerr << std::stoi(number) % std::stoi(mod) << std::endl;
-     return Modulo(std::stoi(number), std::stoi(mod));
 }
 
 void Modulo::SetNumber(int number) {
@@ -130,4 +125,19 @@ bool operator>(const Modulo& lhs, const Modulo& rhs) {
 bool operator<(const Modulo& lhs, const Modulo& rhs) {
     assert(lhs.mod == rhs.mod);
     return lhs.number < rhs.number;
+}
+
+Modulo operator"" _mod(const char* str, std::size_t) {
+     std::string number, mod;
+     int i = 0;
+     while(str[i] != '%') {
+         number += str[i];
+       i++;
+     }
+     i++;
+     while(str[i] != '\0') {
+         mod = str[i];
+         i++;
+     }
+     return Modulo(std::stoi(number), std::stoi(mod));
 }
