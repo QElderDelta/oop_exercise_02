@@ -20,7 +20,7 @@ Modulo::Modulo(int number, int mod) {
     assert(mod != 0);
     this->mod = mod;
     if(number > 0) {
-        this->number = number;
+        this->number = number % mod;
     } else {
         this->number = (number % mod) + mod;
     }
@@ -97,11 +97,12 @@ std::ostream& operator<<(std::ostream& os, const Modulo& m) {
 }
 
 void Modulo::SetNumber(int number) {
-    this->number = number;
+    this->number = number % this->mod;
 }
 
 void Modulo::SetMod(int mod) {
     this->mod = mod;
+    this->number %= mod;
 }
 
 int Modulo::GetNumber() const {
