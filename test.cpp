@@ -20,10 +20,10 @@ TEST(ModuloTest, AdditionTest) {
     ASSERT_EQ(c.GetNumber(), 4);
     a += b;
     ASSERT_EQ(a.GetNumber(), 4);
-    a.SetNumber(3);
     a.SetMod(3);
-    b.SetNumber(1);
+    a.SetNumber(3);
     b.SetMod(3);
+    b.SetNumber(1);
     a += b;
     ASSERT_EQ(a.GetNumber(), 1);
 }
@@ -35,10 +35,10 @@ TEST(ModuloTest, SubtractionTest) {
     ASSERT_EQ(c.GetNumber(), 0);
     a -= b;
     ASSERT_EQ(a.GetNumber(), 0);
-    a.SetNumber(3);
     a.SetMod(3);
-    b.SetNumber(1);
+    a.SetNumber(3);
     b.SetMod(3);
+    a.SetNumber(1);
     a -= b;
     ASSERT_EQ(a.GetNumber(), 2);
 }
@@ -50,10 +50,10 @@ TEST(ModuloTest, MultiplicationTest) {
     ASSERT_EQ(c.GetNumber(), 4);
     a *= b;
     ASSERT_EQ(a.GetNumber(), 4);
-    a.SetNumber(3);
     a.SetMod(3);
-    b.SetNumber(1);
+    a.SetNumber(3);
     b.SetMod(3);
+    b.SetNumber(1);
     a *= b;
     ASSERT_EQ(a.GetNumber(), 0);
 }
@@ -65,10 +65,10 @@ TEST(ModuloTest, DivisionTest) {
     ASSERT_EQ(c.GetNumber(), 1);
     a /= b;
     ASSERT_EQ(a.GetNumber(), 1);
-    a.SetNumber(3);
     a.SetMod(3);
-    b.SetNumber(1);
+    a.SetNumber(3);
     b.SetMod(3);
+    b.SetNumber(1);
     a /= b;
     ASSERT_EQ(a.GetNumber(), 0);
 }
@@ -86,6 +86,15 @@ TEST(ModuloTest, ComparisionTest) {
     ASSERT_FALSE(a == b);
     ASSERT_TRUE(a < b);
     ASSERT_FALSE(a > b);
+}
+
+TEST(ModuloTest, LiteralTest) {
+    Modulo a = "-8%5"_mod;
+    ASSERT_EQ(a.GetNumber(), 2);
+    ASSERT_EQ(a.GetMod(), 5);
+    a = "7%3"_mod;
+    ASSERT_EQ(a.GetNumber(), 1);
+    ASSERT_EQ(a.GetMod(), 3);
 }
 
 int main(int argc, char** argv) {

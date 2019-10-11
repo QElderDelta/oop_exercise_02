@@ -97,7 +97,11 @@ std::ostream& operator<<(std::ostream& os, const Modulo& m) {
 }
 
 void Modulo::SetNumber(int number) {
-    this->number = number % this->mod;
+    if(number >= 0) {
+        this->number = number % this->mod;
+    } else {
+        this->number = (number % this->mod) + this->mod;
+    }
 }
 
 void Modulo::SetMod(int mod) {
