@@ -105,6 +105,7 @@ void Modulo::SetNumber(int number) {
 }
 
 void Modulo::SetMod(int mod) {
+    assert(mod != 0);
     this->mod = mod;
     this->number %= mod;
 }
