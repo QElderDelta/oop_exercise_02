@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/qelderdelta/Study/oop_exercise_02/main.cpp
+iostream
+-
+modulo.hpp
+/home/qelderdelta/Study/oop_exercise_02/modulo.hpp
+
+/home/qelderdelta/Study/oop_exercise_02/modulo.cpp
+iostream
+-
+cassert
+-
+modulo.hpp
+/home/qelderdelta/Study/oop_exercise_02/modulo.hpp
+
+/home/qelderdelta/Study/oop_exercise_02/modulo.hpp
+iostream
+-
+cassert
+-
+

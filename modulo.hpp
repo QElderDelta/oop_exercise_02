@@ -27,6 +27,10 @@ class Modulo {
         int mod;
 };
 
+Modulo operator+(Modulo lhs, const Modulo& rhs);
+Modulo operator-(Modulo lhs, const Modulo& rhs);
+Modulo operator*(Modulo lhs, const Modulo& rhs);
+Modulo operator/(Modulo lhs, const Modulo& rhs);
 Modulo operator"" _mod(const char* str, std::size_t);
 
 #endif

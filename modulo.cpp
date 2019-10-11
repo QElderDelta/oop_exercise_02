@@ -56,26 +56,21 @@ Modulo& Modulo::operator/=(const Modulo& rhs) {
 }
 
 Modulo operator+(Modulo lhs, const Modulo& rhs) {
-    assert(lhs.mod == rhs.mod);
     lhs += rhs;
     return lhs;
 }
 
 Modulo operator*(Modulo lhs, const Modulo& rhs) {
-    assert(lhs.mod == rhs.mod);
     lhs *= rhs;
     return lhs;    
 }
 
 Modulo operator-(Modulo lhs, const Modulo& rhs) {
-    assert(lhs.mod == rhs.mod);
     lhs -= rhs;
     return lhs;
-    Modulo result;
 }
 
 Modulo operator/(Modulo lhs, const Modulo& rhs) {
-    assert(lhs.mod == rhs.mod);
     lhs /= rhs;
     return lhs;
 }
