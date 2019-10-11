@@ -1,1 +1,0 @@
-/usr/bin/c++   -Wall -Wextra -Werror  -rdynamic CMakeFiles/ModuloTest.dir/test.cpp.o  -o ModuloTest lib/libgtest.a lib/libgtest_main.a lib/libgtest.a -lpthread 
