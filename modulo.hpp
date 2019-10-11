@@ -13,10 +13,6 @@ class Modulo {
         Modulo& operator*=(const Modulo& rhs);
         Modulo& operator-=(const Modulo& rhs);
         Modulo& operator/=(const Modulo& rhs);
-        friend Modulo operator+(Modulo lhs, const Modulo& rhs);
-        friend Modulo operator*(Modulo lhs, const Modulo& rhs);
-        friend Modulo operator-(Modulo lhs, const Modulo& rhs);
-        friend Modulo operator/(Modulo lhs, const Modulo& rhs);
         friend std::istream& operator>>(std::istream& is, Modulo& mod);
         friend std::ostream& operator<<(std::ostream& os, const Modulo& mod);
         void SetNumber(int number);
